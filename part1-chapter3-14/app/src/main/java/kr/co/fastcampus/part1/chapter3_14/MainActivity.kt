@@ -4,9 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -17,38 +24,76 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TextFieldTheme {
-                Greeting()
+                Gretting()
             }
         }
     }
 }
 
 @Composable
-fun Greeting() {
+fun Gretting() {
+    // 스탭 1
+    // TextField를 Text위에 만들어보자
+    // 이땐 TextField에 입력이 되지않음
+//    Column(modifier = Modifier.padding(16.dp)) {
+//        TextField(value = "Tom", onValueChange = {})
+//
+//        Text(text = "Hello Android")
+//    }
+
+    // 스탭 2
+    // Text에 TextField의 입력을 출력시켜보자
+//    var name by remember { mutableStateOf("Tom") }
+//
+//    Column(modifier = Modifier.padding(16.dp)) {
+//        TextField(value = name, onValueChange = {name = it})
+//
+//        Text(text = "Hello $name")
+//    }
+
+
+    // 스탭 3
+    // TextField에 lable 추가해보기 (설명느낌)
+//    var name by remember { mutableStateOf("Tom") }
+//
+//    Column(modifier = Modifier.padding(16.dp)) {
+//        TextField(value = name,
+//            label = {
+//                Text("이름")
+//            },
+//            onValueChange = {name = it}
+//        )
+//
+//        Spacer(modifier = Modifier.size(8.dp))
+//
+//        Text(text = "Hello $name")
+//    }
+
+
+    // 스탭 4
+    // OutlinedTextField 사용해보기
+    var name by remember { mutableStateOf("Tom") }
+
     Column(modifier = Modifier.padding(16.dp)) {
-        // 스텝 1: TextField를 Text위에 만듭니다.
-        // value와 onValueChanged는 비워둡시다.
+        OutlinedTextField(value = name,
+            label = {
+                Text("이름")
+            },
+            onValueChange = {name = it}
+        )
 
-        // 스텝 2: Text에 Android 대신 TextField 입력을
-        // 출력하게 합시다. mutableStateOf("") 필드를
-        // 하나 만듭시다.
+        Spacer(modifier = Modifier.size(8.dp))
 
-        // 스텝 3: TextField에 label을 추가합시다.
-        // 내용에는 `Text("Name")`을 채워봅시다.
-
-        // 스텝 4: TextField와 Text 사이에 Spacer를 넣어 8.dp
-        // 간격을 줍시다.
-
-        // 스텝 5: TextField를 OutlinedTextField로 변경해봅시다.
-
-        Text(text = "Hello Android")
+        Text(text = "Hello $name")
     }
+
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    TextFieldTheme {
-        Greeting()
+    TextFieldTheme  {
+        Gretting()
     }
 }
