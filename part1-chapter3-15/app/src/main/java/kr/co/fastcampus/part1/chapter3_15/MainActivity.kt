@@ -63,72 +63,72 @@ fun TopBarEx(name: String) {
 
         // 스텝 3: actions를 추가해보자
         // Icons.Filled의 여러 아이콘을 이용해보자
-        // 스탭 4보다 이 형식이 더 좋음
-        TopAppBar(
-            title = { Text("TopAppBar")},
-            navigationIcon = {
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = "이전 아이콘"
-                    )
-                }
-            },
-            actions = {
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.Search,
-                        contentDescription = "검색 아이콘"
-                    )
-                }
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.Settings,
-                        contentDescription = "설정 아이콘"
-                    )
-                }
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.AccountBox,
-                        contentDescription = "계정 아이콘"
-                    )
-                }
-            }
-        )
+        // 스탭 4보다 이 형식을 쓰는게 더 좋음
+//        TopAppBar(
+//            title = { Text("TopAppBar")},
+//            navigationIcon = {
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.ArrowBack,
+//                        contentDescription = "이전 아이콘"
+//                    )
+//                }
+//            },
+//            actions = {
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.Search,
+//                        contentDescription = "검색 아이콘"
+//                    )
+//                }
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.Settings,
+//                        contentDescription = "설정 아이콘"
+//                    )
+//                }
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.AccountBox,
+//                        contentDescription = "계정 아이콘"
+//                    )
+//                }
+//            }
+//        )
 
 
 
         // 스텝 4
         // title, navigationIcon, actions 라고 쓰지않고, 그냥 순차적으로 쓰는 방법
-//        TopAppBar{
-//            IconButton(onClick = {}) {
-//                Icon(
-//                    imageVector = Icons.Filled.ArrowBack,
-//                    contentDescription = "이전 아이콘"
-//                )
-//            }
-//            // Modifier.weight(1f)로 지정해서 나머지 비율을 Text가 다 차지하도록
-//            Text("TopAppBar", modifier = Modifier.weight(1f))
-//
-//            IconButton(onClick = {}) {
-//                Icon(
-//                    imageVector = Icons.Filled.Search,
-//                    contentDescription = "검색 아이콘"
-//                )
-//            }
-//            IconButton(onClick = {}) {
-//                Icon(
-//                    imageVector = Icons.Filled.Settings,
-//                    contentDescription = "설정 아이콘"
-//                )
-//            }
-//            IconButton(onClick = {}) {
-//                Icon(
-//                    imageVector = Icons.Filled.AccountBox,
-//                    contentDescription = "계정 아이콘"
-//                )
-//            }
-//        }
+        TopAppBar{
+            IconButton(onClick = {}) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = "이전 아이콘"
+                )
+            }
+            // Modifier.weight(1f)로 지정해서 나머지 비율을 Text가 다 차지하도록
+            Text("TopAppBar", modifier = Modifier.weight(1f))
+
+            IconButton(onClick = {}) {
+                Icon(
+                    imageVector = Icons.Filled.Search,
+                    contentDescription = "검색 아이콘"
+                )
+            }
+            IconButton(onClick = {}) {
+                Icon(
+                    imageVector = Icons.Filled.Settings,
+                    contentDescription = "설정 아이콘"
+                )
+            }
+            IconButton(onClick = {}) {
+                Icon(
+                    imageVector = Icons.Filled.AccountBox,
+                    contentDescription = "계정 아이콘"
+                )
+            }
+        }
 
         Text(text = "Hello $name!")
     }
