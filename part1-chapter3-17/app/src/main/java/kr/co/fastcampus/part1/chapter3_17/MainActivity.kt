@@ -1,17 +1,25 @@
 package kr.co.fastcampus.part1.chapter3_17
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Checkbox
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -60,11 +68,33 @@ fun ScaffoldEx() {
 
     Scaffold(topBar = {
         // 스텝 1: `topBar`를 `TopAppBar`로 채워 봅시다.
-
-    }) {
+        TopAppBar(
+            navigationIcon = {
+                IconButton(onClick = {}) {
+                    Image(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = "뒤로가기 아이콘"
+                    )
+                }
+            },
+            title = {
+                Text(text = "탑앱바 입니다")
+            }
+        )
+    },
+        floatingActionButton = {
+            FloatingActionButton(onClick = {}) {
+            }
+        }
+    ) {
         Surface(modifier = Modifier.padding(8.dp)) {
             // 스텝 2: 아래에 CheckBoxWithContent를 넣어봅시다.
-
+            CheckBoxWithContent(
+                checked = checked,
+                toggleState = {checked = !checked}
+            ) {
+                Text(text = "컴포즈를 좋아합니다")
+            }
         }
     }
 }
